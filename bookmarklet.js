@@ -1,0 +1,1 @@
+javascript:(function(){javascript:var s=document.createElement('script');s.setAttribute('src','https://jenbennings.github.io/wololo/wololo.js');document.body.appendChild(s);})();
