@@ -18,6 +18,12 @@ var randomSound = function() {
   return random;
 };
 
+var playAudio = function() {
+  this.removeEventListener('canplay', playAudio);
+  this.currentTime = 0;
+  this.play();
+};
+
 var audio;
 var target;
 var originalColor;
@@ -29,8 +35,7 @@ var convert = function() {
   audio.pause;
   audio.loop = false;
   originalTarget = target;
-  audio.currentTime = 0;
-  audio.play();
+  audio.addEventListener('canplay', playAudio);
 
   originalColor = originalTarget.style.color;
   originalBg = originalTarget.style.backgroundColor;
