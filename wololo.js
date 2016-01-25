@@ -43,8 +43,18 @@ var convert = function() {
   originalTarget.style.backgroundColor = 'blue';
 }
 
-document.body.addEventListener('click', function(event) {
+var _monkMode = function(evt) {
   event.preventDefault();
   target = event.target;
   convert();
-});
+}
+
+document.body.addEventListener('click', _monkMode);
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  if (evt.keyCode == 27) {
+    document.body.classList.remove("cursor");
+    document.body.removeEventListener('click', _monkMode);
+  }
+};
