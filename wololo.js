@@ -40,7 +40,11 @@ var convert = function() {
   originalColor = originalTarget.style.color;
   originalBg = originalTarget.style.backgroundColor;
   originalTarget.style.color = 'white';
-  originalTarget.style.backgroundColor = 'blue';
+  if (originalBg == 'blue' || originalBg == '#ff0000' || originalBg = '#f00') {
+    originalTarget.style.backgroundColor = 'red';
+  } else {
+    originalTarget.style.backgroundColor = 'blue';
+  }
 }
 
 var _monkMode = function(evt) {
